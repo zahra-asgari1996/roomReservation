@@ -14,11 +14,20 @@
     </servlet-mapping>
 
     <filter>
-        <filter-name>f1</filter-name>
+        <filter-name>f2</filter-name>
         <filter-class>AuthFilter</filter-class>
     </filter>
     <filter-mapping>
-        <filter-name>f1</filter-name>
-        <url-pattern>/a</url-pattern>
+        <filter-name>f2</filter-name>
+        <url-pattern>/auth</url-pattern>
     </filter-mapping>
+
+    <servlet>
+        <servlet-name>s2</servlet-name>
+        <servlet-class>reservation</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>s2</servlet-name>
+        <url-pattern>/auth</url-pattern>
+    </servlet-mapping>
 </web-app>

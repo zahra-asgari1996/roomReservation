@@ -21,14 +21,15 @@ public class AuthFilter implements Filter {
             pattern=Pattern.compile("[1,2,3,4]");
             matcher=pattern.matcher(String.valueOf(capacity));
             if (matcher.matches()){
-                out.println("ok!!");
                 chain.doFilter(req, resp);
             }else{
+                out.println("Invalid Capacity:");
                 RequestDispatcher rd= req.getRequestDispatcher("form.html");
                 rd.forward(req,resp);
             }
 
         }else{
+            out.println("Invalid NationalCode:");
             RequestDispatcher rd= req.getRequestDispatcher("form.html");
             rd.forward(req,resp);
         }
