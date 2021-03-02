@@ -12,4 +12,13 @@
         <servlet-name>s1</servlet-name>
         <url-pattern>/form</url-pattern>
     </servlet-mapping>
+
+    <filter>
+        <filter-name>f1</filter-name>
+        <filter-class>AuthFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>f1</filter-name>
+        <url-pattern>/a</url-pattern>
+    </filter-mapping>
 </web-app>
