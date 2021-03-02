@@ -6,13 +6,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "reservation")
-public class reservation extends HttpServlet {
+@WebServlet(name = "showInformationServlet")
+public class showInformationServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         PrintWriter out = response.getWriter();
-        out.println("okkkkkk");
+        out.println("showwww");
 
     }
 }

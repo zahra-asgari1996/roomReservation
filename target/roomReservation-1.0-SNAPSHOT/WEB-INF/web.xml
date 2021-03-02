@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>s1</servlet-name>
-        <servlet-class>form</servlet-class>
+        <servlet-class>formServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>s1</servlet-name>
@@ -24,10 +24,49 @@
 
     <servlet>
         <servlet-name>s2</servlet-name>
-        <servlet-class>reservation</servlet-class>
+        <servlet-class>reservationServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>s2</servlet-name>
         <url-pattern>/auth</url-pattern>
     </servlet-mapping>
+
+    <filter>
+        <filter-name>f3</filter-name>
+        <filter-class>nationalCodeFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>f3</filter-name>
+        <url-pattern>/nationalCode</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>s3</servlet-name>
+        <servlet-class>showInformationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>s3</servlet-name>
+        <url-pattern>/nationalCode</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>f4</filter-name>
+        <filter-class>reserveCodeFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>f4</filter-name>
+        <url-pattern>/reserveCode</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>s4</servlet-name>
+        <servlet-class>changeCancelServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>s4</servlet-name>
+        <url-pattern>/reserveCode</url-pattern>
+    </servlet-mapping>
+
+
+
 </web-app>
