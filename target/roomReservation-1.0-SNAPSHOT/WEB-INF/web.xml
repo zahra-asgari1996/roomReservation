@@ -57,23 +57,48 @@
         <url-pattern>/nationalCode</url-pattern>
     </servlet-mapping>
 
+
     <filter>
         <filter-name>f4</filter-name>
         <filter-class>reserveCodeFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>f4</filter-name>
-        <url-pattern>/reserveCode</url-pattern>
+        <url-pattern>/cancel</url-pattern>
     </filter-mapping>
 
     <servlet>
         <servlet-name>s4</servlet-name>
-        <servlet-class>changeCancelServlet</servlet-class>
+        <servlet-class>CancelServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>s4</servlet-name>
-        <url-pattern>/reserveCode</url-pattern>
+        <url-pattern>/cancel</url-pattern>
     </servlet-mapping>
+
+    <filter>
+        <filter-name>f6</filter-name>
+        <filter-class>reserveCodeFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>f6</filter-name>
+        <url-pattern>/change</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>s5</servlet-name>
+        <servlet-class>ChangeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>s5</servlet-name>
+        <url-pattern>/change</url-pattern>
+    </servlet-mapping>
+
+
+
+
+
+
 
 
 
