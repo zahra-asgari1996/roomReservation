@@ -21,6 +21,14 @@
         <filter-name>f2</filter-name>
         <url-pattern>/auth</url-pattern>
     </filter-mapping>
+    <filter>
+        <filter-name>f5</filter-name>
+        <filter-class>DateFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>f5</filter-name>
+        <url-pattern>/auth</url-pattern>
+    </filter-mapping>
 
     <servlet>
         <servlet-name>s2</servlet-name>

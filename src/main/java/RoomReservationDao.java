@@ -26,8 +26,8 @@ public class RoomReservationDao {
             statement.setString(1, reserve.getName());
             statement.setString(2, reserve.getLastName());
             statement.setInt(3, reserve.getNationalCode());
-            statement.setDate(4, reserve.getStartDate());
-            statement.setDate(5, reserve.getEndDate());
+            statement.setDate(4, (Date) reserve.getStartDate());
+            statement.setDate(5, (Date) reserve.getEndDate());
             statement.setInt(6, reserve.getCapacity());
             statement.setInt(7, roomNumber);
             statement.executeUpdate();

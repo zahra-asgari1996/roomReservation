@@ -1,3 +1,5 @@
+
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -6,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
+import java.time.Instant;
+
 
 @WebServlet(name = "reservation")
 public class reservationServlet extends HttpServlet {
@@ -18,14 +22,17 @@ public class reservationServlet extends HttpServlet {
         String name=request.getParameter("firstName");
         String lastName=request.getParameter("lastName");
         int nationalCode=Integer.valueOf(request.getParameter("nationalCode"));
-        Date startDate= Date.valueOf(request.getParameter("startDate"));
-        Date endDate= Date.valueOf(request.getParameter("endDate"));
+        java.sql.Date startDate= java.sql.Date.valueOf(request.getParameter("startDate"));
+        java.sql.Date endDate= Date.valueOf(request.getParameter("endDate"));
         int capacity=Integer.valueOf(request.getParameter("capacity"));
+
         RoomReservation reserve=new RoomReservation(name,lastName,nationalCode,capacity,startDate,endDate);
         RoomReservationDao roomReservationDao=new RoomReservationDao();
         roomReservationDao.addNewReserve(reserve);
         out.println("You Reserved Room Successfully");
+        out.println();
         out.println("Your Reservation Code Is: ");
+        out.println();
         out.println(roomReservationDao.returnReserveCode());
 
 

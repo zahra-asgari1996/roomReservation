@@ -5,12 +5,12 @@ public class RoomReservation {
     private String lastName;
     private int nationalCode;
     private int capacity;
-    private Date startDate;
-    private Date endDate;
+    private java.sql.Date startDate;
+    private java.sql.Date endDate;
     private int reserveCode;
     private int roomNumber;
 
-    public RoomReservation(String name, String lastName, int nationalCode, int capacity, Date startDate, Date endDate) {
+    public RoomReservation(String name, String lastName, int nationalCode, int capacity, java.sql.Date startDate, java.sql.Date endDate) {
         this.name = name;
         this.lastName = lastName;
         this.nationalCode = nationalCode;
