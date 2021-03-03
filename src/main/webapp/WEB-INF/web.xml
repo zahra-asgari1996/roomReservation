@@ -67,13 +67,22 @@
     </filter-mapping>
 
     <servlet>
-        <servlet-name>s4</servlet-name>
-        <servlet-class>changeCancelServlet</servlet-class>
+        <servlet-name>s5</servlet-name>
+        <servlet-class>ChangeCancelServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>s4</servlet-name>
+        <servlet-name>s5</servlet-name>
         <url-pattern>/reserveCode</url-pattern>
     </servlet-mapping>
+
+
+
+
+
+
+
+
+
 
 
 

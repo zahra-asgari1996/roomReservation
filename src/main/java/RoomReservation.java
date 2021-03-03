@@ -84,4 +84,16 @@ public class RoomReservation {
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
+
+    @Override
+    public String toString() {
+        return "reserves : {" +
+                "name=" + name +
+                "\nlastName='" + lastName +
+                "\nnationalCode=" + nationalCode +
+                "\ncapacity=" + capacity +
+                "\nstartDate=" + startDate +
+                "\nendDate=" + endDate +
+                '}';
+    }
 }

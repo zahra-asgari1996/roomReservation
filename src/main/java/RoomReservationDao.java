@@ -61,4 +61,35 @@ public class RoomReservationDao {
         return code.get(code.size()-1);
 
     }
+
+    public List<RoomReservation> showInformation(int nationalCode){
+        List <RoomReservation> information=new ArrayList<>();
+
+        try {
+            DbConnection dbConnection = new DbConnection();
+            Class.forName(DbConnection.getJdbcDriver());
+            Connection connection = DriverManager.getConnection(DbConnection.getDbUrl(), DbConnection.getUSER(), DbConnection.getPASS());
+            Statement stm = connection.createStatement();
+            String q = "select * from roomreservation where roomreservation.nationalCode=nationalCode ";
+            ResultSet resultSet = stm.executeQuery(q);
+            while (resultSet.next()) {
+                String name=resultSet.getString("name");
+                String lastName=resultSet.getString("lastName");
+                int nationalId=resultSet.getInt("nationalCode");
+                Date startDate=resultSet.getDate("startDate");
+                Date endDate=resultSet.getDate("endDate");
+                //int reserveCode=resultSet.getInt("reserveCode");
+                //int roomNumber=resultSet.getInt("roomNumber");
+                int capacity=resultSet.getInt("capacity");
+                RoomReservation room=new RoomReservation(name,lastName,nationalId,capacity,startDate,endDate);
+                information.add(room);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return information;
+
+    }
 }

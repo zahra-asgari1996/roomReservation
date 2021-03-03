@@ -13,9 +13,12 @@ public class showInformationServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         PrintWriter out = response.getWriter();
-        out.println("showwww");
+        RoomReservationDao roomReservationDao=new RoomReservationDao();
+        out.println(roomReservationDao.showInformation(Integer.parseInt(request.getParameter("nationalCode"))));
+
+
+
 
     }
 }
