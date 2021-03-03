@@ -17,21 +17,11 @@ public class AuthFilter implements Filter {
         Pattern pattern = Pattern.compile("[0-9]{10}");
         Matcher matcher = pattern.matcher(String.valueOf(nationalCode));
         if (matcher.matches()){
-            int capacity=Integer.parseInt(req.getParameter("capacity"));
-            pattern=Pattern.compile("[1,2,3,4]");
-            matcher=pattern.matcher(String.valueOf(capacity));
-            if (matcher.matches()){
-                chain.doFilter(req, resp);
-            }else{
-                out.println("Invalid Capacity:");
-                RequestDispatcher rd= req.getRequestDispatcher("form.html");
-                rd.forward(req,resp);
-            }
-
+            chain.doFilter(req, resp);
         }else{
-            out.println("Invalid NationalCode:");
+            out.println("Invalid National Code");
             RequestDispatcher rd= req.getRequestDispatcher("form.html");
-            rd.forward(req,resp);
+            rd.include(req,resp);
         }
 
     }
