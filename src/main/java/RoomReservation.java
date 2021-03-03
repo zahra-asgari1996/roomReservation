@@ -10,14 +10,14 @@ public class RoomReservation {
     private int reserveCode;
     private int roomNumber;
 
-    public RoomReservation(String name, String lastName, int nationalCode, int capacity, Date startDate, Date endDate,int reserveCode) {
+    public RoomReservation(String name, String lastName, int nationalCode, int capacity, Date startDate, Date endDate) {
         this.name = name;
         this.lastName = lastName;
         this.nationalCode = nationalCode;
         this.capacity = capacity;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.reserveCode=reserveCode;
+
     }
 
     public String getName() {
