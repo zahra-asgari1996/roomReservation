@@ -5,8 +5,8 @@ import java.io.PrintWriter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@WebFilter(filterName = "reserveCodeFilter")
-public class reserveCodeFilter implements Filter {
+@WebFilter(filterName = "ChangeReserveCodeFilter")
+public class ChangeReserveCodeFilter implements Filter {
     public void destroy() {
     }
 
@@ -20,11 +20,13 @@ public class reserveCodeFilter implements Filter {
             chain.doFilter(req, resp);
         }else{
             out.println("Invalid Reserve Code");
-            RequestDispatcher rd= req.getRequestDispatcher("reserveCode.html");
+            RequestDispatcher rd= req.getRequestDispatcher("ChangeForm.html");
             rd.include(req,resp);
         }
 
     }
+
+
 
     public void init(FilterConfig config) throws ServletException {
 

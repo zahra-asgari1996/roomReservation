@@ -25,12 +25,12 @@ public class formServlet extends HttpServlet {
 
 
         }else if(req.equalsIgnoreCase("cancel")){
-            RequestDispatcher rd=request.getRequestDispatcher("reserveCode.html");
+            RequestDispatcher rd=request.getRequestDispatcher("CancelForm.html");
             rd.forward(request,response);
 
 
         }else {
-            RequestDispatcher rd=request.getRequestDispatcher("reserveCode.html");
+            RequestDispatcher rd=request.getRequestDispatcher("ChangeForm.html");
             rd.forward(request,response);
 
         }

@@ -60,28 +60,10 @@
 
     <filter>
         <filter-name>f4</filter-name>
-        <filter-class>reserveCodeFilter</filter-class>
+        <filter-class>ChangeReserveCodeFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>f4</filter-name>
-        <url-pattern>/cancel</url-pattern>
-    </filter-mapping>
-
-    <servlet>
-        <servlet-name>s4</servlet-name>
-        <servlet-class>CancelServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>s4</servlet-name>
-        <url-pattern>/cancel</url-pattern>
-    </servlet-mapping>
-
-    <filter>
-        <filter-name>f6</filter-name>
-        <filter-class>reserveCodeFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>f6</filter-name>
         <url-pattern>/change</url-pattern>
     </filter-mapping>
 
@@ -92,6 +74,24 @@
     <servlet-mapping>
         <servlet-name>s5</servlet-name>
         <url-pattern>/change</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>f6</filter-name>
+        <filter-class>CancelReserveCodeFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>f6</filter-name>
+        <url-pattern>/cancel</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>s6</servlet-name>
+        <servlet-class>CancelServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>s6</servlet-name>
+        <url-pattern>/cancel</url-pattern>
     </servlet-mapping>
 
 

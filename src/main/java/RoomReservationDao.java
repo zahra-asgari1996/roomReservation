@@ -70,7 +70,7 @@ public class RoomReservationDao {
             Class.forName(DbConnection.getJdbcDriver());
             Connection connection = DriverManager.getConnection(DbConnection.getDbUrl(), DbConnection.getUSER(), DbConnection.getPASS());
             Statement stm = connection.createStatement();
-            String q = "select * from roomreservation where roomreservation.nationalCode=nationalCode ";
+            String q = "select * from roomreservation where roomreservation.nationalCode="+nationalCode;
             ResultSet resultSet = stm.executeQuery(q);
             while (resultSet.next()) {
                 String name=resultSet.getString("name");
@@ -90,6 +90,21 @@ public class RoomReservationDao {
             e.printStackTrace();
         }
         return information;
+
+    }
+    public void cancelReserve(int reserveCode){
+        try {
+            DbConnection dbConnection = new DbConnection();
+            Class.forName(DbConnection.getJdbcDriver());
+            Connection connection = DriverManager.getConnection(DbConnection.getDbUrl(), DbConnection.getUSER(), DbConnection.getPASS());
+            Statement stm = connection.createStatement();
+            String q = "DELETE FROM roomreservation WHERE roomreservation.reserveCode="+reserveCode;
+            stm.executeUpdate(q);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 }
