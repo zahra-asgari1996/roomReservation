@@ -5,8 +5,8 @@ import java.io.PrintWriter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@WebFilter(filterName = "capacityFilter")
-public class capacityFilter implements Filter {
+@WebFilter(filterName = "CapacityFilter")
+public class CapacityFilter implements Filter {
     public void destroy() {
     }
 
@@ -20,7 +20,7 @@ public class capacityFilter implements Filter {
         }else{
             out.println("Invalid Capacity:");
             RequestDispatcher rd= req.getRequestDispatcher("form.html");
-            rd.forward(req,resp);
+            rd.include(req,resp);
         }
     }
 
