@@ -14,7 +14,6 @@ public class CancelServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         RoomReservationDao roomReservationDao=new RoomReservationDao();
         roomReservationDao.cancelReserve(Integer.parseInt(request.getParameter("reserveCode")));
         PrintWriter out = response.getWriter();

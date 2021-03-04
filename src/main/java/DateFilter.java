@@ -21,8 +21,6 @@ public class DateFilter implements Filter {
             RequestDispatcher rd= req.getRequestDispatcher("form.html");
             rd.include(req,resp);
         }
-
-
     }
 
     public void init(FilterConfig config) throws ServletException {
