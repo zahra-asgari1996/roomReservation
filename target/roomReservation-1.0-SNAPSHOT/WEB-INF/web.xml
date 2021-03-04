@@ -30,6 +30,15 @@
         <url-pattern>/auth</url-pattern>
     </filter-mapping>
 
+    <filter>
+        <filter-name>f9</filter-name>
+        <filter-class>CapacityFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>f9</filter-name>
+        <url-pattern>/auth</url-pattern>
+    </filter-mapping>
+
     <servlet>
         <servlet-name>s2</servlet-name>
         <servlet-class>reservationServlet</servlet-class>
@@ -67,6 +76,33 @@
         <url-pattern>/change</url-pattern>
     </filter-mapping>
 
+    <filter>
+        <filter-name>f10</filter-name>
+        <filter-class>NCChangeFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>f10</filter-name>
+        <url-pattern>/change</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>f11</filter-name>
+        <filter-class>DATEChangeFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>f11</filter-name>
+        <url-pattern>/change</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>f12</filter-name>
+        <filter-class>CapacityChangeFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>f12</filter-name>
+        <url-pattern>/change</url-pattern>
+    </filter-mapping>
+
     <servlet>
         <servlet-name>s5</servlet-name>
         <servlet-class>ChangeServlet</servlet-class>
@@ -93,12 +129,6 @@
         <servlet-name>s6</servlet-name>
         <url-pattern>/cancel</url-pattern>
     </servlet-mapping>
-
-
-
-
-
-
 
 
 

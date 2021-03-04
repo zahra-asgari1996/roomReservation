@@ -5,26 +5,25 @@ import java.io.PrintWriter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@WebFilter(filterName = "AuthFilter")
-public class AuthFilter implements Filter {
+@WebFilter(filterName = "CapacityFilter")
+public class CapacityFilter implements Filter {
     public void destroy() {
     }
 
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
-        resp.setContentType("text/html");
+        int capacity=Integer.parseInt(req.getParameter("capacity"));
         PrintWriter out = resp.getWriter();
-        int nationalCode=Integer.parseInt(req.getParameter("nationalCode"));
-        Pattern pattern = Pattern.compile("[0-9]{10}");
-        Matcher matcher = pattern.matcher(String.valueOf(nationalCode));
+        Pattern pattern= Pattern.compile("[1,2,3,4]");
+        Matcher matcher=pattern.matcher(String.valueOf(capacity));
         if (matcher.matches()){
-                chain.doFilter(req, resp);
+            chain.doFilter(req, resp);
         }else{
-            out.println("Invalid NationalCode:");
+            out.println("Invalid Capacity:");
             RequestDispatcher rd= req.getRequestDispatcher("form.html");
-            rd.forward(req,resp);
+            rd.include(req,resp);
         }
-
     }
+
     public void init(FilterConfig config) throws ServletException {
 
     }

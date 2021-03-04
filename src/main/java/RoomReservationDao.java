@@ -107,4 +107,25 @@ public class RoomReservationDao {
         }
 
     }
+    public void changeReserve(int reserveCode,RoomReservation reserve){
+        try {
+            DbConnection dbConnection = new DbConnection();
+            Class.forName(DbConnection.getJdbcDriver());
+            Connection connection = DriverManager.getConnection(DbConnection.getDbUrl(), DbConnection.getUSER(), DbConnection.getPASS());
+            String query = "UPDATE roomreservation SET name=?,lastName=?,nationalCode=?,startDate=?,endDate=?,capacity=? WHERE reserveCode="+reserveCode;
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setString(1, reserve.getName());
+            statement.setString(2, reserve.getLastName());
+            statement.setInt(3, reserve.getNationalCode());
+            statement.setDate(4, (Date) reserve.getStartDate());
+            statement.setDate(5, (Date) reserve.getEndDate());
+            statement.setInt(6, reserve.getCapacity());
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
