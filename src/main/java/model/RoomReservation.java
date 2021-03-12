@@ -21,7 +21,7 @@ public class RoomReservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int reserveCode;
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int roomNumber;
 
     public RoomReservation() {

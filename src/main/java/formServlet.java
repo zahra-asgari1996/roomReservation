@@ -38,7 +38,7 @@ public class formServlet extends HttpServlet {
                 rd.include(request,response);
             }
         }else if(req.equalsIgnoreCase("cancel")){
-            RequestDispatcher rd=request.getRequestDispatcher("CancelForm.html");
+            RequestDispatcher rd=request.getRequestDispatcher("Cancel.html");
             rd.forward(request,response);
         }else {
             RequestDispatcher rd=request.getRequestDispatcher("ChangeForm.html");
