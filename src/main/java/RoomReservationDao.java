@@ -1,9 +1,6 @@
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.UUID;
-import java.util.stream.Collectors;
 
 public class RoomReservationDao {
 
@@ -107,7 +104,7 @@ public class RoomReservationDao {
         }
 
     }
-    public void changeReserve(int reserveCode,RoomReservation reserve){
+    public void changeReserve(int reserveCode, RoomReservation reserve){
         try {
             DbConnection dbConnection = new DbConnection();
             Class.forName(DbConnection.getJdbcDriver());

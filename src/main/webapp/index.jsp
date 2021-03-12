@@ -5,18 +5,14 @@
 
 <h2>Welcome to Room Reservation System</h2>
 
-
-<form method="get" action="form">
-    <input type="radio" id="reserve" name="option" value="reserve">
-    <label for="reserve">Reserve</label><br>
-    <input type="radio" id="show" name="option" value="show">
-    <label for="show">Show</label><br>
-    <input type="radio" id="change" name="option" value="change">
-    <label for="change">Change</label><br>
-    <input type="radio" id="cancel" name="option" value="cancel">
-    <label for="cancel">Cancel</label><br><br>
-    <input type="submit" value="login"/><br>
+<form action="login" method="post">
+    <label for="user">user</label><br>
+    <input type="text" id="user" name="user" ><br>
+    <label for="pass">password:</label><br>
+    <input type="text" id="pass" name="pass"><br><br>
+    <input type="submit" value="Submit">
 </form>
+
 
 </body>
 </html>
