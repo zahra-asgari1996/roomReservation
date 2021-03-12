@@ -15,6 +15,16 @@ public class User {
     @Column
     private String lastName;
 
+    public User(int nationalCode, int pass, String name, String lastName) {
+        this.nationalCode = nationalCode;
+        this.pass = pass;
+        this.name = name;
+        this.lastName = lastName;
+    }
+
+    public User() {
+    }
+
     public int getNationalCode() {
         return nationalCode;
     }
@@ -45,5 +55,15 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "nationalCode=" + nationalCode +
+                ", pass=" + pass +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
     }
 }

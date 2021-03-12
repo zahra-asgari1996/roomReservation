@@ -1,6 +1,7 @@
 package Service;
 
 import model.HibernateUtil;
+import model.RoomReservation;
 import model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -16,5 +17,15 @@ public class UserDao {
         session.close();
         return user;
     }
+
+    public  void saveNewUser(User user){
+        Session session= sessionFactory.openSession();
+        session.beginTransaction();
+        session.save(user);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+
 
 }

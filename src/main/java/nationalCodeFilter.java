@@ -23,8 +23,6 @@ public class nationalCodeFilter implements Filter {
             RequestDispatcher rd= req.getRequestDispatcher("nationalCode.html");
             rd.include(req,resp);
         }
-
-
     }
 
     public void init(FilterConfig config) throws ServletException {

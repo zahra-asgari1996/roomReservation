@@ -14,7 +14,7 @@ public class ChangeReserveCodeFilter implements Filter {
         resp.setContentType("text/html");
         PrintWriter out = resp.getWriter();
         int reserveCode=Integer.parseInt(req.getParameter("reserveCode"));
-        Pattern pattern = Pattern.compile("[0-9]{5}");
+        Pattern pattern = Pattern.compile("[0-9]");
         Matcher matcher = pattern.matcher(String.valueOf(reserveCode));
         if (matcher.matches()){
             chain.doFilter(req, resp);

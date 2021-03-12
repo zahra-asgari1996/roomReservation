@@ -20,13 +20,8 @@ public class loginServlet extends HttpServlet {
         String pass = request.getParameter("pass");
         if (userName==null) {
             HttpSession session = request.getSession(false);
-            if (session != null) {
-                out.println("welcome...");
-                RequestDispatcher rd = request.getRequestDispatcher("/profile");
-                rd.include(request, response);
-
-            } else {
-                out.println("Plz Inter Your Username And Pass");
+            if (session == null) {
+                out.println("Plz Login First");
                 RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
                 rd.include(request, response);
             }
@@ -34,14 +29,12 @@ public class loginServlet extends HttpServlet {
         } else {
             UserDao userDao=new UserDao();
             User user=userDao.findContactById(Integer.parseInt(userName));
-
-
-
             if (user.getNationalCode()==Integer.parseInt(userName)&&user.getPass()==Integer.parseInt(pass)) {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("user", userName);
                 session.setAttribute("pass", pass);
-                out.println("hello" + " " + userName);
+                out.println("hello" + " " + user.getName() + " " + user.getLastName());
+                request.getRequestDispatcher("fourAction.html").include(request,response);
 
             } else {
                 out.println("Sorry Invalid Username Or Pass");
@@ -50,8 +43,7 @@ public class loginServlet extends HttpServlet {
 
             }
         }
-
-
+        out.println("<br><br><a href= 'logout'>Log out</a>");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
