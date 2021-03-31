@@ -38,8 +38,9 @@ public class ChangeServlet extends HttpServlet {
             User user= userDao.findContactById(Integer.valueOf(n));
             out.print("welcome" +" "+ user.getName());
             int code=Integer.parseInt(request.getParameter("reserveCode"));
-            RoomReservation room=new RoomReservation(user,capacity,startDate,endDate);
             RoomReservationDao roomReservationDao=new RoomReservationDao();
+            RoomReservation room=new RoomReservation(user,capacity,startDate,endDate,roomReservationDao.returnReserveCode()+1);
+
             roomReservationDao.updateReserve(room,code);
 
 

@@ -18,31 +18,35 @@ public class loginServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         String userName = request.getParameter("user");
         String pass = request.getParameter("pass");
-        if (userName==null) {
-            HttpSession session = request.getSession(false);
-            if (session == null) {
-                out.println("Plz Login First");
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            if (userName == null || pass==null) {
+                out.println("Plz Fill The User Name And Pass");
                 RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
                 rd.include(request, response);
-            }
-
-        } else {
-            UserDao userDao=new UserDao();
-            User user=userDao.findContactById(Integer.parseInt(userName));
-            if (user.getNationalCode()==Integer.parseInt(userName)&&user.getPass()==Integer.parseInt(pass)) {
-                HttpSession session = request.getSession(true);
-                session.setAttribute("user", userName);
-                session.setAttribute("pass", pass);
-                out.println("hello" + " " + user.getName() + " " + user.getLastName());
-                request.getRequestDispatcher("fourAction.html").include(request,response);
 
             } else {
-                out.println("Sorry Invalid Username Or Pass");
-                RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-                rd.include(request, response);
+                UserDao userDao = new UserDao();
+                User user = userDao.findContactById(Integer.parseInt(userName));
+                if (user.getNationalCode() == Integer.parseInt(userName) && user.getPass() == Integer.parseInt(pass)) {
+                    session.setAttribute("user", userName);
+                    session.setAttribute("pass", pass);
+                    out.println("hello" + " " + user.getName() + " " + user.getLastName());
+                    request.getRequestDispatcher("fourAction.html").include(request, response);
 
+                } else {
+                    out.println("Sorry Invalid Username Or Pass");
+                    RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+                    rd.include(request, response);
+
+                }
             }
+        }else{
+            out.println("You should log in first");
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+            rd.include(request, response);
         }
+
         out.println("<br><br><a href= 'logout'>Log out</a>");
     }
 

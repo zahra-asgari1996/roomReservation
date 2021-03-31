@@ -60,8 +60,8 @@ public class reservationServlet extends HttpServlet {
             UserDao userDao=new UserDao();
             User user= userDao.findContactById(Integer.valueOf(n));
             out.print("welcome" +" "+ user.getName());
-            RoomReservation room=new RoomReservation(user,capacity,startDate,endDate);
             RoomReservationDao roomReservationDao=new RoomReservationDao();
+            RoomReservation room=new RoomReservation(user,capacity,startDate,endDate,roomReservationDao.returnReserveCode()+1);
             roomReservationDao.saveNewReserve(room);
         }else {
             out.println("You Should Login First");

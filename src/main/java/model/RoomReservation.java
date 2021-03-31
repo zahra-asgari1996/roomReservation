@@ -27,11 +27,12 @@ public class RoomReservation {
     public RoomReservation() {
     }
 
-    public RoomReservation(User user, int capacity, Date startDate, Date endDate) {
+    public RoomReservation(User user, int capacity, Date startDate, Date endDate,int roomNumber) {
         this.user = user;
         this.capacity = capacity;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.roomNumber=roomNumber;
 
     }
 
